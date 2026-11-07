@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>গ্যালারি | Knowledge Garden Islamic Institute</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f8f6;
+            color: #222;
+            line-height: 1.7;
+        }
+
+        header {
+            background: #075e3b;
+            color: white;
+            text-align: center;
+            padding: 22px 15px;
+        }
+
+        header h1 {
+            font-size: 25px;
+            margin-bottom: 3px;
+        }
+
+        header p {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        nav {
+            background: #064d32;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #0b7650;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #0b7650, #075e3b);
+            color: white;
+            text-align: center;
+            padding: 55px 15px;
+        }
+
+        .page-header h2 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 15px;
+        }
+
+        .intro {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .intro h2 {
+            color: #075e3b;
+            margin-bottom: 8px;
+            font-size: 24px;
+        }
+
+        .intro p {
+            color: #555;
+            font-size: 15px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+        }
+
+        .image-box {
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item h3 {
+            padding: 16px 10px;
+            text-align: center;
+            color: #075e3b;
+            font-size: 18px;
+        }
+
+        footer {
+            background: #064d32;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 3px 0;
+            font-size: 14px;
+        }
+
+        @media (max-width: 800px) {
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 21px;
+            }
+
+            header p {
+                font-size: 13px;
+            }
+
+            nav {
+                padding: 8px 5px;
+            }
+
+            nav a {
+                font-size: 13px;
+                padding: 7px 9px;
+            }
+
+            .page-header {
+                padding: 42px 15px;
+            }
+
+            .page-header h2 {
+                font-size: 26px;
+            }
+
+            .page-header p {
+                font-size: 14px;
+            }
+
+            .container {
+                margin: 28px auto;
+            }
+
+            .intro {
+                padding: 21px;
+            }
+
+            .intro h2 {
+                font-size: 21px;
+            }
+
+            .intro p {
+                font-size: 14px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .gallery-item img {
+                height: 230px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>নলেজ গার্ডেন ইসলামিক ইনস্টিটিউট</h1>
+        <p>Knowledge Garden Islamic Institute</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">হোম</a>
+        <a href="about.html">আমাদের সম্পর্কে</a>
+        <a href="departments.html">বিভাগসমূহ</a>
+        <a href="teachers.html">শিক্ষকবৃন্দ</a>
+        <a href="admission.html">অনলাইন ভর্তি</a>
+        <a href="notice.html">নোটিশ</a>
+        <a href="gallery.html">গ্যালারি</a>
+        <a href="contact.html">যোগাযোগ</a>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h2>ছবির গ্যালারি</h2>
+        <p>আমাদের প্রতিষ্ঠান ও কার্যক্রমের কিছু ছবি</p>
+    </section>
+
+    <!-- Gallery Content -->
+    <main class="container">
+
+        <div class="intro">
+            <h2>Knowledge Garden Islamic Institute</h2>
+
+            <p>
+                আমাদের শিক্ষা কার্যক্রম, শ্রেণিকক্ষ, শিক্ষার্থী এবং বিভিন্ন
+                কার্যক্রমের ছবি এখানে প্রদর্শিত হবে।
+            </p>
+        </div>
+
+        <section class="gallery">
+
+            <!-- Gallery 1 -->
+            <div class="gallery-item">
+                <div class="image-box">
+                    <img
+                        src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=800&q=80"
+                        alt="ইসলামী শিক্ষা">
+                </div>
+
+                <h3>ইসলামী শিক্ষা</h3>
+            </div>
+
+
+            <!-- Gallery 2 -->
+            <div class="gallery-item">
+                <div class="image-box">
+                    <img
+                        src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=800&q=80"
+                        alt="শিক্ষার্থী">
+                </div>
+
+                <h3>শিক্ষার্থী</h3>
+            </div>
+
+
+            <!-- Gallery 3 -->
+            <div class="gallery-item">
+                <div class="image-box">
+                    <img
+                        src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=800&q=80"
+                        alt="পাঠাগার">
+                </div>
+
+                <h3>পাঠাগার</h3>
+            </div>
+
+
+            <!-- Gallery 4 -->
+            <div class="gallery-item">
+                <div class="image-box">
+                    <img
+                        src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=80"
+                        alt="শ্রেণিকক্ষ">
+                </div>
+
+                <h3>শ্রেণিকক্ষ</h3>
+            </div>
+
+
+            <!-- Gallery 5 -->
+            <div class="gallery-item">
+                <div class="image-box">
+                    <img
+                        src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80"
+                        alt="শিক্ষা কার্যক্রম">
+                </div>
+
+                <h3>শিক্ষা কার্যক্রম</h3>
+            </div>
+
+
+            <!-- Gallery 6 -->
+            <div class="gallery-item">
+                <div class="image-box">
+                    <img
+                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80"
+                        alt="কম্পিউটার শিক্ষা">
+                </div>
+
+                <h3>কম্পিউটার শিক্ষা</h3>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Knowledge Garden Islamic Institute</p>
+        <p>সকল অধিকার সংরক্ষিত</p>
+    </footer>
+
+</body>
+</html>

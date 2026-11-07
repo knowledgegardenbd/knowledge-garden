@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>বিভাগসমূহ - Knowledge Garden Islamic Institute</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f8f6;
+            color: #222;
+            line-height: 1.7;
+        }
+
+        /* Header */
+        header {
+            background: #075e3b;
+            color: white;
+            padding: 20px 15px;
+            text-align: center;
+        }
+
+        .logo h1 {
+            font-size: 26px;
+            margin-bottom: 5px;
+        }
+
+        .logo p {
+            font-size: 14px;
+            color: #d9f5e8;
+        }
+
+        /* Navigation */
+        nav {
+            background: #064d32;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            background: #0b7650;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: #0a7049;
+            color: white;
+            text-align: center;
+            padding: 65px 20px;
+        }
+
+        .page-header h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 55px 20px;
+        }
+
+        /* Introduction */
+        .intro {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 35px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .intro h3 {
+            color: #075e3b;
+            margin-bottom: 12px;
+            font-size: 25px;
+        }
+
+        /* Departments */
+        .departments {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .department {
+            background: white;
+            padding: 30px 22px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .department:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .department h3 {
+            color: #075e3b;
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .department p {
+            color: #555;
+            font-size: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: #064d32;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        /* Tablet */
+        @media (max-width: 850px) {
+            .departments {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+
+            .logo h1 {
+                font-size: 22px;
+            }
+
+            nav a {
+                font-size: 12px;
+                padding: 7px 8px;
+            }
+
+            .page-header h2 {
+                font-size: 30px;
+            }
+
+            .container {
+                padding: 40px 15px;
+            }
+
+            .departments {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <div class="logo">
+            <h1>নলেজ গার্ডেন ইসলামিক ইনস্টিটিউট</h1>
+            <p>Knowledge Garden Islamic Institute</p>
+        </div>
+
+    </header>
+
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">হোম</a>
+        <a href="about.html">আমাদের সম্পর্কে</a>
+        <a href="departments.html">বিভাগসমূহ</a>
+        <a href="teachers.html">শিক্ষকবৃন্দ</a>
+        <a href="admission.html">অনলাইন ভর্তি</a>
+        <a href="notice.html">নোটিশ</a>
+        <a href="gallery.html">গ্যালারি</a>
+        <a href="contact.html">যোগাযোগ</a>
+    </nav>
+
+
+    <!-- Page Header -->
+    <section class="page-header">
+
+        <h2>আমাদের বিভাগসমূহ</h2>
+
+        <p>
+            Knowledge Garden Islamic Institute
+        </p>
+
+    </section>
+
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Introduction -->
+        <div class="intro">
+
+            <h3>শিক্ষা কার্যক্রম</h3>
+
+            <p>
+                শিক্ষার্থীদের ইসলামী জ্ঞান, নৈতিকতা,
+                আধুনিক শিক্ষা ও প্রয়োজনীয় দক্ষতা
+                অর্জনের জন্য আমাদের বিভিন্ন শিক্ষা
+                কার্যক্রম রয়েছে।
+            </p>
+
+        </div>
+
+
+        <!-- Departments -->
+        <div class="departments">
+
+            <!-- Department 1 -->
+            <div class="department">
+
+                <div class="icon">📖</div>
+
+                <h3>কুরআন শিক্ষা বিভাগ</h3>
+
+                <p>
+                    সহিহভাবে কুরআন তিলাওয়াত,
+                    নূরানি কায়দা ও প্রয়োজনীয়
+                    তাজবিদ শিক্ষা।
+                </p>
+
+            </div>
+
+
+            <!-- Department 2 -->
+            <div class="department">
+
+                <div class="icon">🕌</div>
+
+                <h3>ইসলামী শিক্ষা বিভাগ</h3>
+
+                <p>
+                    আকিদা, ফিকহ, হাদিস, সীরাত
+                    ও ইসলামী আদর্শের শিক্ষা।
+                </p>
+
+            </div>
+
+
+            <!-- Department 3 -->
+            <div class="department">
+
+                <div class="icon">🎓</div>
+
+                <h3>হিফজুল কুরআন বিভাগ</h3>
+
+                <p>
+                    পরিকল্পিত ও নিয়মতান্ত্রিক পদ্ধতিতে
+                    পবিত্র কুরআন হিফজের ব্যবস্থা।
+                </p>
+
+            </div>
+
+
+            <!-- Department 4 -->
+            <div class="department">
+
+                <div class="icon">🌙</div>
+
+                <h3>নাজেরা বিভাগ</h3>
+
+                <p>
+                    কুরআন মাজিদ দেখে দেখে
+                    শুদ্ধভাবে পড়ার প্রশিক্ষণ।
+                </p>
+
+            </div>
+
+
+            <!-- Department 5 -->
+            <div class="department">
+
+                <div class="icon">💻</div>
+
+                <h3>কম্পিউটার শিক্ষা বিভাগ</h3>
+
+                <p>
+                    কম্পিউটার, প্রযুক্তি ও
+                    ডিজিটাল দক্ষতার মৌলিক শিক্ষা।
+                </p>
+
+            </div>
+
+
+            <!-- Department 6 -->
+            <div class="department">
+
+                <div class="icon">🌍</div>
+
+                <h3>ভাষা শিক্ষা বিভাগ</h3>
+
+                <p>
+                    বাংলা, আরবি ও ইংরেজি ভাষার
+                    প্রয়োজনীয় শিক্ষা ও চর্চা।
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Knowledge Garden Islamic Institute
+        </p>
+
+        <p>
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>

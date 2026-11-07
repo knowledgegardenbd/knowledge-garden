@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>নোটিশ | Knowledge Garden Islamic Institute</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f8f6;
+            color: #222;
+            line-height: 1.7;
+        }
+
+        header {
+            background: #075e3b;
+            color: white;
+            text-align: center;
+            padding: 22px 15px;
+        }
+
+        header h1 {
+            font-size: 25px;
+            margin-bottom: 3px;
+        }
+
+        header p {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        nav {
+            background: #064d32;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #0b7650;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #0b7650, #075e3b);
+            color: white;
+            text-align: center;
+            padding: 55px 15px;
+        }
+
+        .page-header h2 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 40px auto;
+            padding: 0 15px;
+        }
+
+        .notice-box {
+            background: white;
+            margin-bottom: 22px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #075e3b;
+            transition: 0.3s;
+        }
+
+        .notice-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .date {
+            display: inline-block;
+            background: #eef8f2;
+            color: #075e3b;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .notice-box h3 {
+            color: #075e3b;
+            margin-bottom: 9px;
+            font-size: 21px;
+        }
+
+        .notice-box p {
+            font-size: 15px;
+            color: #444;
+        }
+
+        .important {
+            border-left-color: #b8860b;
+        }
+
+        .important .date {
+            background: #fff7df;
+            color: #8a6500;
+        }
+
+        .important h3 {
+            color: #8a6500;
+        }
+
+        .notice-footer {
+            margin-top: 35px;
+            background: #eaf5ef;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: #075e3b;
+        }
+
+        footer {
+            background: #064d32;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 3px 0;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 21px;
+            }
+
+            header p {
+                font-size: 13px;
+            }
+
+            nav {
+                padding: 8px 5px;
+            }
+
+            nav a {
+                font-size: 13px;
+                padding: 7px 9px;
+            }
+
+            .page-header {
+                padding: 42px 15px;
+            }
+
+            .page-header h2 {
+                font-size: 26px;
+            }
+
+            .page-header p {
+                font-size: 14px;
+            }
+
+            .container {
+                margin: 28px auto;
+            }
+
+            .notice-box {
+                padding: 19px;
+            }
+
+            .notice-box h3 {
+                font-size: 19px;
+            }
+
+            .notice-box p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>নলেজ গার্ডেন ইসলামিক ইনস্টিটিউট</h1>
+        <p>Knowledge Garden Islamic Institute</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">হোম</a>
+        <a href="about.html">আমাদের সম্পর্কে</a>
+        <a href="departments.html">বিভাগসমূহ</a>
+        <a href="teachers.html">শিক্ষকবৃন্দ</a>
+        <a href="admission.html">অনলাইন ভর্তি</a>
+        <a href="notice.html">নোটিশ</a>
+        <a href="gallery.html">গ্যালারি</a>
+        <a href="contact.html">যোগাযোগ</a>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h2>নোটিশ বোর্ড</h2>
+        <p>প্রতিষ্ঠানের সর্বশেষ নোটিশ ও গুরুত্বপূর্ণ তথ্য</p>
+    </section>
+
+    <!-- Notices -->
+    <main class="container">
+
+        <div class="notice-box">
+            <span class="date">তারিখ: ২০২৬</span>
+
+            <h3>ভর্তি সংক্রান্ত বিজ্ঞপ্তি</h3>
+
+            <p>
+                নলেজ গার্ডেন ইসলামিক ইনস্টিটিউটের বিভিন্ন বিভাগে নতুন শিক্ষার্থী
+                ভর্তি কার্যক্রম শুরু হয়েছে। আগ্রহী শিক্ষার্থীরা অনলাইন ভর্তি
+                ফর্মের মাধ্যমে আবেদন করতে পারবেন।
+            </p>
+        </div>
+
+
+        <div class="notice-box">
+            <span class="date">তারিখ: ২০২৬</span>
+
+            <h3>কুরআন শিক্ষা কার্যক্রম</h3>
+
+            <p>
+                শিক্ষার্থীদের কুরআন তিলাওয়াত, নাজেরা, তাজবিদ ও হিফজ শিক্ষার
+                জন্য বিশেষ কার্যক্রম পরিচালনা করা হবে।
+            </p>
+        </div>
+
+
+        <div class="notice-box">
+            <span class="date">তারিখ: ২০২৬</span>
+
+            <h3>কম্পিউটার শিক্ষা কোর্স</h3>
+
+            <p>
+                কম্পিউটার শিক্ষা বিভাগের নতুন ব্যাচের ক্লাস শীঘ্রই শুরু হবে।
+                আগ্রহী শিক্ষার্থীদের নির্ধারিত সময়ের মধ্যে আবেদন করার জন্য
+                অনুরোধ করা হচ্ছে।
+            </p>
+        </div>
+
+
+        <div class="notice-box important">
+            <span class="date">গুরুত্বপূর্ণ</span>
+
+            <h3>প্রয়োজনীয় কাগজপত্র</h3>
+
+            <p>
+                ভর্তির সময় শিক্ষার্থীর জন্ম নিবন্ধন/পরিচয়পত্র, ছবি এবং
+                প্রয়োজনীয় শিক্ষাগত তথ্য সঙ্গে রাখতে হবে।
+            </p>
+        </div>
+
+
+        <div class="notice-footer">
+            <strong>নোট:</strong>
+            নতুন কোনো নোটিশ প্রকাশিত হলে এই নোটিশ বোর্ডে যুক্ত করা হবে।
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Knowledge Garden Islamic Institute</p>
+        <p>সকল অধিকার সংরক্ষিত</p>
+    </footer>
+
+</body>
+</html>

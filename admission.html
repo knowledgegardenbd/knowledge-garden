@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>অনলাইন ভর্তি - Knowledge Garden Islamic Institute</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f8f6;
+            color: #222;
+            line-height: 1.7;
+        }
+
+        /* Header */
+        header {
+            background: #075e3b;
+            color: white;
+            padding: 20px 15px;
+            text-align: center;
+        }
+
+        .logo h1 {
+            font-size: 26px;
+            margin-bottom: 5px;
+        }
+
+        .logo p {
+            font-size: 14px;
+            color: #d9f5e8;
+        }
+
+        /* Navigation */
+        nav {
+            background: #064d32;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            background: #0b7650;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: #0a7049;
+            color: white;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .page-header h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        /* Form Box */
+        .form-box {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .form-box h3 {
+            color: #075e3b;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        /* Notice */
+        .note {
+            background: #eef8f2;
+            border-left: 5px solid #075e3b;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 6px;
+        }
+
+        .note strong {
+            color: #075e3b;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #333;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #0b7650;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: #075e3b;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #0b7650;
+        }
+
+        /* Footer */
+        footer {
+            background: #064d32;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+
+            .logo h1 {
+                font-size: 22px;
+            }
+
+            nav a {
+                font-size: 12px;
+                padding: 7px 8px;
+            }
+
+            .page-header h2 {
+                font-size: 30px;
+            }
+
+            .container {
+                padding: 35px 15px;
+            }
+
+            .form-box {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <div class="logo">
+            <h1>নলেজ গার্ডেন ইসলামিক ইনস্টিটিউট</h1>
+            <p>Knowledge Garden Islamic Institute</p>
+        </div>
+
+    </header>
+
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">হোম</a>
+        <a href="about.html">আমাদের সম্পর্কে</a>
+        <a href="departments.html">বিভাগসমূহ</a>
+        <a href="teachers.html">শিক্ষকবৃন্দ</a>
+        <a href="admission.html">অনলাইন ভর্তি</a>
+        <a href="notice.html">নোটিশ</a>
+        <a href="gallery.html">গ্যালারি</a>
+        <a href="contact.html">যোগাযোগ</a>
+    </nav>
+
+
+    <!-- Page Header -->
+    <section class="page-header">
+
+        <h2>অনলাইন ভর্তি</h2>
+
+        <p>
+            নলেজ গার্ডেন ইসলামিক ইনস্টিটিউটে
+            ভর্তির জন্য আবেদন করুন
+        </p>
+
+    </section>
+
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="form-box">
+
+            <!-- Admission Note -->
+            <div class="note">
+
+                <strong>ভর্তি নির্দেশনা:</strong><br>
+
+                নিচের ফর্মটি সঠিক তথ্য দিয়ে পূরণ করুন।
+                আপনার তথ্য যাচাই করে প্রতিষ্ঠান কর্তৃপক্ষ
+                পরবর্তী নির্দেশনা প্রদান করবে।
+
+            </div>
+
+
+            <h3>ভর্তি আবেদন ফর্ম</h3>
+
+
+            <form>
+
+                <!-- Student Name -->
+                <div class="form-group">
+
+                    <label for="name">
+                        শিক্ষার্থীর পূর্ণ নাম *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="শিক্ষার্থীর পূর্ণ নাম লিখুন"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Father -->
+                <div class="form-group">
+
+                    <label for="father">
+                        পিতার নাম *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="father"
+                        name="father"
+                        placeholder="পিতার নাম লিখুন"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Mother -->
+                <div class="form-group">
+
+                    <label for="mother">
+                        মাতার নাম *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="mother"
+                        name="mother"
+                        placeholder="মাতার নাম লিখুন"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Date of Birth -->
+                <div class="form-group">
+
+                    <label for="dob">
+                        জন্ম তারিখ *
+                    </label>
+
+                    <input
+                        type="date"
+                        id="dob"
+                        name="dob"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Gender -->
+                <div class="form-group">
+
+                    <label for="gender">
+                        লিঙ্গ *
+                    </label>
+
+                    <select
+                        id="gender"
+                        name="gender"
+                        required
+                    >
+
+                        <option value="">
+                            নির্বাচন করুন
+                        </option>
+
+                        <option value="male">
+                            ছাত্র
+                        </option>
+
+                        <option value="female">
+                            ছাত্রী
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Department -->
+                <div class="form-group">
+
+                    <label for="department">
+                        যে বিভাগে ভর্তি হতে চান *
+                    </label>
+
+                    <select
+                        id="department"
+                        name="department"
+                        required
+                    >
+
+                        <option value="">
+                            বিভাগ নির্বাচন করুন
+                        </option>
+
+                        <option>
+                            কুরআন শিক্ষা বিভাগ
+                        </option>
+
+                        <option>
+                            ইসলামী শিক্ষা বিভাগ
+                        </option>
+
+                        <option>
+                            হিফজুল কুরআন বিভাগ
+                        </option>
+
+                        <option>
+                            নাজেরা বিভাগ
+                        </option>
+
+                        <option>
+                            কম্পিউটার শিক্ষা বিভাগ
+                        </option>
+
+                        <option>
+                            ভাষা শিক্ষা বিভাগ
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Phone -->
+                <div class="form-group">
+
+                    <label for="phone">
+                        মোবাইল নম্বর *
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="01XXXXXXXXX"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Address -->
+                <div class="form-group">
+
+                    <label for="address">
+                        বর্তমান ঠিকানা *
+                    </label>
+
+                    <textarea
+                        id="address"
+                        name="address"
+                        placeholder="আপনার বর্তমান ঠিকানা লিখুন"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Previous Institution -->
+                <div class="form-group">
+
+                    <label for="previous">
+                        পূর্ববর্তী প্রতিষ্ঠানের নাম
+                    </label>
+
+                    <input
+                        type="text"
+                        id="previous"
+                        name="previous"
+                        placeholder="যদি থাকে"
+                    >
+
+                </div>
+
+
+                <!-- Additional Information -->
+                <div class="form-group">
+
+                    <label for="message">
+                        অতিরিক্ত তথ্য
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="প্রয়োজন হলে অতিরিক্ত তথ্য লিখুন"
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+                    ভর্তি আবেদন জমা দিন
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Knowledge Garden Islamic Institute
+        </

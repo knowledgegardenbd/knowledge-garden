@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> Knowledge Garden Islamic Institute </title>
+  
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, "Noto Sans Bengali", sans-serif;
+            background: #f5faf7;
+            color: #222;
+            line-height: 1.7;
+        }
+
+        header {
+            background: linear-gradient(135deg, #075e3b, #0b7650);
+            color: white;
+            padding: 22px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 16px;
+        }
+
+        nav {
+            background: #064d32;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5px;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 9px 13px;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            background: #0b7650;
+        }
+
+        .hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 50px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(0, 60, 35, 0.72),
+                    rgba(0, 60, 35, 0.72)
+                ),
+                url("https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .btn-green {
+            background: #075e3b;
+            color: white;
+        }
+
+        .btn-white {
+            background: white;
+            color: #075e3b;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 65px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            color: #075e3b;
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .about-text h3 {
+            color: #075e3b;
+            margin-bottom: 12px;
+            font-size: 25px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        .departments {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .department-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .department-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .department-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .department-card h3 {
+            color: #075e3b;
+            margin-bottom: 8px;
+        }
+
+        .teachers {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .teacher-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .teacher-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .teacher-info {
+            padding: 20px;
+        }
+
+        .teacher-info h3 {
+            color: #075e3b;
+            margin-bottom: 5px;
+        }
+
+        .admission-box {
+            background: linear-gradient(135deg, #075e3b, #0b7650);
+            color: white;
+            padding: 50px 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .admission-box h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .admission-box p {
+            margin-bottom: 20px;
+        }
+
+        .notices {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .notice-card {
+            background: white;
+            padding: 25px;
+            border-left: 5px solid #075e3b;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+        }
+
+        .notice-card h3 {
+            color: #075e3b;
+            margin-bottom: 10px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .contact-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+        }
+
+        .contact-box h3 {
+            color: #075e3b;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #064d32;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 900px) {
+
+            .departments,
+            .teachers,
+            .notices,
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about,
+            .contact {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            nav {
+                position: static;
+            }
+
+            nav a {
+                font-size: 14px;
+                padding: 7px 9px;
+            }
+
+            .hero {
+                min-height: 430px;
+            }
+
+            .hero h2 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 45px 15px;
+            }
+
+            .section-title h2 {
+                font-size: 27px;
+            }
+
+            .departments,
+            .teachers,
+            .notices,
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery img {
+                height: 220px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<!-- Header -->
+
+  <!-- Header -->
+
+<header class="main-header">
+
+    <h1 class="animated-title">
+        Knowledge Garden Islamic Institute
+    </h1>
+
+    <p class="bangla-title">
+        নলেজ গার্ডেন ইসলামিক ইনস্টিটিউট
+    </p>
+
+    <p class="header-tagline">
+        জ্ঞান, নৈতিকতা ও ইসলামী শিক্ষার সমন্বিত প্রতিষ্ঠান
+    </p>
+
+</header>
+
+
+<!-- Navigation -->
+
+<nav>
+
+    <a href="index.html">হোম</a>
+
+    <a href="about.html">আমাদের সম্পর্কে</a>
+
+    <a href="departments.html">বিভাগসমূহ</a>
+
+    <a href="teachers.html">শিক্ষকবৃন্দ</a>
+
+    <a href="admission.html">অনলাইন ভর্তি</a>
+
+    <a href="notice.html">নোটিশ</a>
+
+    <a href="gallery.html">গ্যালারি</a>
+
+    <a href="contact.html">যোগাযোগ</a>
+
+</nav>
+
+
+<!-- Hero -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h2>
+            ইসলামী জ্ঞানের আলোয় আলোকিত হোক ভবিষ্যৎ
+        </h2>
+
+        <p>
+            কুরআন-সুন্নাহভিত্তিক শিক্ষা, আধুনিক জ্ঞান
+            এবং নৈতিক চরিত্র গঠনের একটি সুন্দর শিক্ষাঙ্গন।
+        </p>
+
+        <a href="admission.html" class="btn btn-white">
+            অনলাইন ভর্তি
+        </a>
+
+        <a href="about.html" class="btn btn-green">
+            আমাদের সম্পর্কে
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- About -->
+
+<section class="container">
+
+    <div class="section-title">
+
+        <h2>আমাদের সম্পর্কে</h2>
+
+        <p>
+            নলেজ গার্ডেন ইসলামিক ইনস্টিটিউট সম্পর্কে জানুন
+        </p>
+
+    </div>
+
+
+    <div class="about">
+
+        <div class="about-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&w=1000&q=80"
+                alt="Islamic Education"
+            >
+
+        </div>
+
+
+        <div class="about-text">
+
+            <h3>
+                একটি আদর্শ ইসলামী শিক্ষাপ্রতিষ্ঠান
+            </h3>
+
+            <p>
+                নলেজ গার্ডেন ইসলামিক ইনস্টিটিউট একটি
+                জ্ঞানভিত্তিক ও নৈতিক শিক্ষার প্রতিষ্ঠান।
+            </p>
+
+            <p>
+                এখানে কুরআন, হাদিস, ইসলামী শিক্ষা ও
+                প্রয়োজনীয় আধুনিক জ্ঞানের সমন্বয়ে
+                শিক্ষার্থীদের গড়ে তোলার চেষ্টা করা হয়।
+            </p>
+
+            <a href="about.html" class="btn btn-green">
+                বিস্তারিত জানুন
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Departments -->
+
+<section class="container">
+
+    <div class="section-title">
+
+        <h2>আমাদের বিভাগসমূহ</h2>
+
+        <p>
+            বিভিন্ন বিষয়ে মানসম্মত শিক্ষা
+        </p>
+
+    </div>
+
+
+    <div class="departments">
+
+
+        <div class="department-card">
+
+            <div class="department-icon">
+                📖
+            </div>
+
+            <h3>
+                কুরআন বিভাগ
+            </h3>
+
+            <p>
+                কুরআন তিলাওয়াত, নাজেরা ও হিফজ শিক্ষা।
+            </p>
+
+        </div>
+
+
+        <div class="department-card">
+
+            <div class="department-icon">
+                🕌
+            </div>
+
+            <h3>
+                হাদিস বিভাগ
+            </h3>
+
+            <p>
+                হাদিস ও সুন্নাহ সম্পর্কে প্রয়োজনীয় শিক্ষা।
+            </p>
+
+        </div>
+
+
+        <div class="department-card">
+
+            <div class="department-icon">
+                📚
+            </div>
+
+            <h3>
+                ইসলামী শিক্ষা
+            </h3>
+
+            <p>
+                আকিদা, ফিকহ, সীরাত ও ইসলামী ইতিহাস।
+            </p>
+
+        </div>
+
+
+        <div class="department-card">
+
+            <div class="department-icon">
+                💻
+            </div>
+
+            <h3>
+                কম্পিউটার শিক্ষা
+            </h3>
+
+            <p>
+                কম্পিউটার ও ডিজিটাল প্রযুক্তির মৌলিক শিক্ষা।
+            </p>
+
+        </div>
+
+
+        <div class="department-card">
+
+            <div class="department-icon">
+                ✍️
+            </div>
+
+            <h3>
+                বাংলা ও ইংরেজি
+            </h3>
+
+            <p>
+                ভাষা শিক্ষা ও যোগাযোগ দক্ষতা উন্নয়ন।
+            </p>
+
+        </div>
+
+
+        <div class="department-card">
+
+            <div class="department-icon">
+                🎓
+            </div>
+
+            <h3>
+                বিশেষ কোর্স
+            </h3>
+
+            <p>
+                প্রয়োজন অনুযায়ী বিভিন্ন প্রশিক্ষণ ও কোর্স।
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div style="text-align:center; margin-top:30px;">
+
+        <a href="departments.html" class="btn btn-green">
+            সব বিভাগ দেখুন
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- Teachers -->
+
+<section class="container">
+
+    <div class="section-title">
+
+        <h2>আমাদের শিক্ষকবৃন্দ</h2>
+
+        <p>
+            অভিজ্ঞ ও দায়িত্বশীল শিক্ষকমণ্ডলী
+        </p>
+
+    </div>
+
+
+    <div class="teachers">
+
+
+        <div class="teacher-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=80"
+                alt="Teacher"
+            >
+
+            <div class="teacher-info">
+
+                <h3>
+                    মাওলানা আব্দুল্লাহ
+                </h3>
+
+                <p>
+                    ইসলামী শিক্ষা ও কুরআন বিভাগ
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="teacher-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?auto=format&fit=crop&w=700&q=80"
+                alt="Teacher"
+            >
+
+            <div class="teacher-info">
+
+                <h3>
+                    মাওলানা মুহাম্মদ হাসান
+                </h3>
+
+                <p>
+                    হাদিস ও ফিকহ বিভাগ
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="teacher-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=700&q=80"
+                alt="Teacher"
+            >
+
+            <div class="teacher-info">
+
+                <h3>
+                    মোঃ আব্দুর রহমান
+                </h3>
+
+                <p>
+                    কম্পিউটার ও আধুনিক শিক্ষা
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div style="text-align:center; margin-top:30px;">
+
+        <a href="teachers.html" class="btn btn-green">
+            সকল শিক্ষক দেখুন
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- Admission -->
+
+<section class="container">
+
+    <div class="admission-box">
+
+        <h2>
+            অনলাইন ভর্তি কার্যক্রম
+        </h2>
+
+        <p>
+            আপনার পছন্দের কোর্সে ভর্তি হতে
+            এখনই অনলাইন আবেদন করুন।
+        </p>
+
+        <a href="admission.html" class="btn btn-white">
+            ভর্তি আবেদন করুন
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- Notices -->
+
+<section class="container">
+
+    <div class="section-title">
+
+        <h2>
+            সর্বশেষ নোটিশ
+        </h2>
+
+        <p>
+            প্রতিষ্ঠান সম্পর্কিত গুরুত্বপূর্ণ ঘোষণা
+        </p>
+
+    </div>
+
+
+    <div class="notices">
+
+
+        <div class="notice-card">
+
+            <h3>
+                ভর্তি কার্যক্রম শুরু
+            </h3>
+
+            <p>
+                নতুন শিক্ষাবর্ষের ভর্তি কার্যক্রম
+                শুরু হয়েছে। আগ্রহী শিক্ষার্থীরা
+                অনলাইনে আবেদন করতে পারবেন।
+            </p>
+
+        </div>
+
+
+        <div class="notice-card">
+
+            <h3>
+                নতুন ক্লাসের সময়সূচি
+            </h3>
+
+            <p>
+                নতুন ব্যাচের ক্লাসের সময়সূচি
+                নোটিশ বোর্ডে প্রকাশ করা হবে।
+            </p>
+
+        </div>
+
+
+        <div class="notice-card">
+
+            <h3>
+                গুরুত্বপূর্ণ ঘোষণা
+            </h3>
+
+            <p>
+                সকল শিক্ষার্থীকে নিয়মিত ক্লাসে
+                অংশগ্রহণ এবং প্রতিষ্ঠানের নিয়ম
+                মেনে চলার জন্য অনুরোধ করা হচ্ছে।
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div style="text-align:center; margin-top:30px;">
+
+        <a href="notice.html" class="btn btn-green">
+            সকল নোটিশ দেখুন
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- Gallery -->
+
+<section class="container">
+
+    <div class="section-title">
+
+        <h2>
+            ফটো গ্যালারি
+        </h2>
+
+        <p>
+            আমাদের কার্যক্রমের কিছু ছবি
+        </p>
+
+    </div>
+
+
+    <div class="gallery">
+
+
+        <img
+            src="https://photos.app.goo.gl/ciuYpBaHhgmHLfDk8"
+        >
+
+
+        <img
+            src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=900&q=80"
+            alt="Quran"
+        >
+
+
+        <img
+            src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=900&q=80"
+            alt="Mosque"
+        >
+
+
+        <img
+            src="https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&w=900&q=80"
+            alt="Islamic Learning"
+        >
+
+
+        <img
+            src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=900&q=80"
+            alt="Books"
+        >
+
+
+        <img
+            src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=900&q=80"
+            alt="Library"
+        >
+
+
+    </div>
+
+
+    <div style="text-align:center; margin-top:30px;">
+
+        <a href="gallery.html" class="btn btn-green">
+            সম্পূর্ণ গ্যালারি দেখুন
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- Contact -->
+
+<section class="container">
+
+    <div class="section-title">
+
+        <h2>
+            যোগাযোগ
+        </h2>
+
+        <p>
+            আমাদের সাথে যোগাযোগ করুন
+        </p>
+
+    </div>
+
+
+    <div class="contact">
+
+
+        <div class="contact-box">
+
+            <h3>
+                যোগাযোগের তথ্য
+            </h3>
+
+            <p>
+                📍 নলেজ গার্ডেন ইসলামিক ইনস্টিটিউট
+            </p>
+
+            <p>
+                📞 01XXXXXXXXX
+            </p>
+
+            <p>
+                📧 info@example.com
+            </p>
+
+            <p>
+                🕐 সকাল ৯টা — বিকেল ৫টা
+            </p>
+
+        </div>
+
+
+        <div class="contact-box">
+
+            <h3>
+                দ্রুত যোগাযোগ
+            </h3>
+
+            <p>
+                ভর্তি, কোর্স অথবা অন্যান্য তথ্যের জন্য
+                আমাদের সাথে যোগাযোগ করুন।
+            </p>
+
+            <br>
+
+            <a href="contact.html" class="btn btn-green">
+                যোগাযোগ পেজ
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- Footer -->
+
+<footer>
+
+    <p>
+        © 2026 Knowledge Garden Islamic Institute
+    </p>
+
+    <p>
+        সকল অধিকার সংরক্ষিত
+    </p>
+
+</footer>
+
+
+</body>
+</html>
