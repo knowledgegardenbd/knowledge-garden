@@ -97,6 +97,20 @@ h3 { color: #075e3b; }
             <p>ছবি ও গ্যালারি পরিচালনা করুন।</p>
         </div>
     </section>
+    
+<section class="card" style="margin-top:20px;">
+    <h3>ভর্তি আবেদনসমূহ</h3>
+    <button onclick="loadAdmissions()">
+        আবেদনগুলো দেখুন
+    </button>
+    <div id="admissionList">
+        <p>আবেদন দেখতে বাটনে চাপ দিন।</p>
+    </div>
+</section>
+</main>
+</body>
+</html>
+
 </main>
 
 <script>
@@ -137,6 +151,57 @@ function logout() {
 }
 
 verifyAdmin();
+    
+async function loadAdmissions() {
+    const list = document.getElementById("admissionList");
+    list.textContent = "আবেদন লোড হচ্ছে...";
+
+    try {
+        const response = await fetch(API_URL + "/api/admissions", {
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.message || "আবেদন লোড করা যায়নি");
+        }
+
+        if (result.applications.length === 0) {
+            list.textContent = "এখনো কোনো ভর্তি আবেদন জমা হয়নি।";
+            return;
+        }
+
+        list.replaceChildren();
+
+        result.applications.forEach(item => {
+            const card = document.createElement("div");
+            card.style.cssText =
+                "border:1px solid #ddd;padding:14px;margin-top:12px;border-radius:8px;";
+
+            const title = document.createElement("h3");
+            title.textContent = item.studentName;
+
+            const details = document.createElement("p");
+            details.textContent =
+                "পিতা: " + item.fatherName +
+                " | মাতা: " + item.motherName +
+                " | মোবাইল: " + item.phone +
+                " | শ্রেণি: " + item.className +
+                " | ঠিকানা: " + item.address +
+                " | অবস্থা: " + item.status;
+
+            card.append(title, details);
+            list.appendChild(card);
+        });
+
+    } catch (error) {
+        list.textContent = error.message;
+    }
+}
+    
 </script>
 
 </body>
