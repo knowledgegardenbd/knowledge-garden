@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>অনলাইন ভর্তি আবেদন | Knowledge Garden</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:20px;background:#f0f6f2;font-family:Arial,sans-serif}
+.form-box{max-width:600px;margin:20px auto;background:white;padding:25px;border-radius:14px;box-shadow:0 3px 15px #0001}
+h2{text-align:center;color:#075e3b}
+p{text-align:center;color:#666}
+label{display:block;margin-top:16px;font-weight:bold}
+input,textarea,select{width:100%;padding:13px;margin-top:7px;border:1px solid #ccc;border-radius:7px;font-size:16px}
+textarea{min-height:85px}
+button{width:100%;padding:14px;margin-top:22px;background:#075e3b;color:white;border:0;border-radius:8px;font-size:17px}
+#message{text-align:center;margin-top:15px}
+</style>
+</head>
+<body>
+<div class="form-box">
+<h2>Knowledge Garden Islamic Institute</h2>
+<p>অনলাইন ভর্তি আবেদন ফর্ম</p>
+
+<form id="admissionForm">
+<label>শিক্ষার্থীর নাম</label>
+<input name="studentName" required>
+
+<label>পিতার নাম</label>
+<input name="fatherName" required>
+
+<label>মাতার নাম</label>
+<input name="motherName" required>
+
+<label>মোবাইল নম্বর</label>
+<input name="phone" type="tel" required>
+
+<label>যে শ্রেণিতে ভর্তি হতে চান</label>
+<select name="className" required>
+<option value="">শ্রেণি নির্বাচন করুন</option>
+<option>প্রথম শ্রেণি</option>
+<option>দ্বিতীয় শ্রেণি</option>
+<option>তৃতীয় শ্রেণি</option>
+<option>চতুর্থ শ্রেণি</option>
+<option>পঞ্চম শ্রেণি</option>
+<option>ষষ্ঠ শ্রেণি</option>
+<option>সপ্তম শ্রেণি</option>
+<option>অষ্টম শ্রেণি</option>
+<option>নবম শ্রেণি</option>
+<option>অন্যান্য</option>
+</select>
+
+<label>সম্পূর্ণ ঠিকানা</label>
+<textarea name="address" required></textarea>
+
+<button type="submit" id="submitBtn">আবেদন জমা দিন</button>
+<p id="message"></p>
+</form>
+</div>
+
+<script>
+const API_URL = "https://knowledge-garden-3.onrender.com";
+
+document.getElementById("admissionForm").addEventListener("submit", async function(e){
+    e.preventDefault();
+
+    const btn = document.getElementById("submitBtn");
+    const msg = document.getElementById("message");
+
+    btn.disabled = true;
+    btn.textContent = "জমা হচ্ছে...";
+    msg.textContent = "";
+
+    const form = new FormData(this);
+    const data = Object.fromEntries(form.entries());
+
+    try {
+        const response = await fetch(API_URL + "/api/admissions", {
+            method: "POST",
+            headers: {"Content-Type":"application/json"},
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) throw new Error(result.message || "আবেদন জমা হয়নি");
+
+        msg.style.color = "green";
+        msg.textContent = "আপনার আবেদন সফলভাবে জমা হয়েছে। আবেদন নম্বর: " + result.applicationId;
+        this.reset();
+
+    } catch(error) {
+        msg.style.color = "red";
+        msg.textContent = error.message;
+    } finally {
+        btn.disabled = false;
+        btn.textContent = "আবেদন জমা দিন";
+    }
+});
+</script>
+</body>
+</html>
