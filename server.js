@@ -130,5 +130,93 @@ async function startServer() {
     }
 }
 
+// Admission Application Model
+const AdmissionSchema = new mongoose.Schema({
+    studentName: { type: String, required: true },
+    fatherName: { type: String, required: true },
+    motherName: { type: String, required: true },
+    phone: { type: String, required: true },
+    className: { type: String, required: true },
+    address: { type: String, required: true },
+    status: {
+        type: String,
+        enum: ["Pending", "Approved", "Rejected"],
+        default: "Pending"
+    }
+}, { timestamps: true });
+
+const Admission = mongoose.model("Admission", AdmissionSchema);
+
+// Submit Admission Application
+app.post("/api/admissions", async (req, res) => {
+    try {
+        const {
+            studentName,
+            fatherName,
+            motherName,
+            phone,
+            className,
+            address
+        } = req.body;
+
+        if (!studentName || !fatherName || !motherName ||
+            !phone || !className || !address) {
+            return res.status(400).json({
+                message: "সব তথ্য পূরণ করুন"
+            });
+        }
+
+        const application = await Admission.create({
+            studentName,
+            fatherName,
+            motherName,
+            phone,
+            className,
+            address
+        });
+
+        res.status(201).json({
+            message: "ভর্তি আবেদন সফলভাবে জমা হয়েছে",
+            applicationId: application._id
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            message: "আবেদন জমা হয়নি"
+        });
+    }
+});
+
+// Get all admission applications (Admin only)
+app.get("/api/admissions", async (req, res) => {
+    try {
+        const authHeader = req.headers.authorization;
+
+        if (!authHeader || !authHeader.startsWith("Bearer ")) {
+            return res.status(401).json({ message: "Unauthorized" });
+        }
+
+        const token = authHeader.split(" ")[1];
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+        const admin = await Admin.findById(decoded.adminId);
+
+        if (!admin) {
+            return res.status(401).json({ message: "Unauthorized" });
+        }
+
+        const applications = await Admission.find().sort({
+            createdAt: -1
+        });
+
+        res.json({ applications });
+
+    } catch (error) {
+        res.status(401).json({
+            message: "Unauthorized or invalid token"
+        });
+    }
+});
+                             
 startServer();
     
