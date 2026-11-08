@@ -217,6 +217,58 @@ app.get("/api/admissions", async (req, res) => {
         });
     }
 });
-                             
+     // Admin: Update admission status
+app.patch("/api/admissions/:id/status", async (req, res) => {
+    try {
+        const authHeader = req.headers.authorization;
+
+        if (!authHeader || !authHeader.startsWith("Bearer ")) {
+            return res.status(401).json({
+                message: "অনুমতি নেই। আবার লগইন করুন।"
+            });
+        }
+
+        const token = authHeader.split(" ")[1];
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+        const admin = await Admin.findById(decoded.adminId);
+
+        if (!admin) {
+            return res.status(401).json({
+                message: "অ্যাডমিন পাওয়া যায়নি।"
+            });
+        }
+
+        const { status } = req.body;
+
+        if (!["Approved", "Rejected"].includes(status)) {
+            return res.status(400).json({
+                message: "সঠিক Status নির্বাচন করুন।"
+            });
+        }
+
+        const application = await Admission.findByIdAndUpdate(
+            req.params.id,
+            { status: status },
+            { new: true, runValidators: true }
+        );
+
+        if (!application) {
+            return res.status(404).json({
+                message: "আবেদন পাওয়া যায়নি।"
+            });
+        }
+
+        res.json({
+            message: "আবেদনের Status সফলভাবে পরিবর্তন হয়েছে।",
+            application: application
+        });
+
+    } catch (error) {
+        res.status(401).json({
+            message: "অনুমোদন ব্যর্থ হয়েছে।"
+        });
+    }
+});                        
 startServer();
     
