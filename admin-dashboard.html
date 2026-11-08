@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | Knowledge Garden</title>
+<style>
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f2;
+    color: #24352c;
+}
+header {
+    background: #075e3b;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+header h2 { margin: 0; font-size: 20px; }
+button {
+    border: 0;
+    border-radius: 7px;
+    padding: 11px 16px;
+    cursor: pointer;
+}
+.logout { background: white; color: #075e3b; }
+main { padding: 20px; max-width: 1000px; margin: auto; }
+.welcome {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+h3 { color: #075e3b; }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 15px;
+}
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #0000000d;
+}
+.card button {
+    background: #075e3b;
+    color: white;
+    margin-top: 10px;
+}
+#status { color: #666; }
+</style>
+</head>
+<body>
+
+<header>
+    <h2>Knowledge Garden Admin</h2>
+    <button class="logout" onclick="logout()">Logout</button>
+</header>
+
+<main>
+    <section class="welcome">
+        <h2>স্বাগতম, Administrator!</h2>
+        <p>Knowledge Garden Islamic Institute Admin Dashboard</p>
+        <p id="status">আপনার পরিচয় যাচাই করা হচ্ছে...</p>
+    </section>
+
+    <section class="grid">
+        <div class="card">
+            <h3>ভর্তি আবেদন</h3>
+            <p>শিক্ষার্থীদের ভর্তি আবেদন পরিচালনা করুন।</p>
+        </div>
+
+        <div class="card">
+            <h3>শিক্ষার্থী</h3>
+            <p>শিক্ষার্থীদের তথ্য পরিচালনা করুন।</p>
+        </div>
+
+        <div class="card">
+            <h3>শিক্ষক</h3>
+            <p>শিক্ষকদের তথ্য পরিচালনা করুন।</p>
+        </div>
+
+        <div class="card">
+            <h3>নোটিশ</h3>
+            <p>প্রতিষ্ঠানের নোটিশ পরিচালনা করুন।</p>
+        </div>
+
+        <div class="card">
+            <h3>গ্যালারি</h3>
+            <p>ছবি ও গ্যালারি পরিচালনা করুন।</p>
+        </div>
+    </section>
+</main>
+
+<script>
+const API_URL = "https://knowledge-garden-3.onrender.com";
+const token = sessionStorage.getItem("adminToken");
+
+async function verifyAdmin() {
+    if (!token) {
+        window.location.replace("admin.html");
+        return;
+    }
+
+    try {
+        const response = await fetch(API_URL + "/api/admin/me", {
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        });
+
+        if (!response.ok) {
+            sessionStorage.removeItem("adminToken");
+            window.location.replace("admin.html");
+            return;
+        }
+
+        document.getElementById("status").textContent =
+            "Admin পরিচয় সফলভাবে যাচাই হয়েছে।";
+
+    } catch (error) {
+        document.getElementById("status").textContent =
+            "সার্ভারের সঙ্গে সংযোগ হচ্ছে না। আবার চেষ্টা করুন।";
+    }
+}
+
+function logout() {
+    sessionStorage.removeItem("adminToken");
+    window.location.replace("admin.html");
+}
+
+verifyAdmin();
+</script>
+
+</body>
+              </html>
+              
