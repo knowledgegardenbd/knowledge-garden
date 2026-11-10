@@ -3,111 +3,150 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Admin Dashboard | Knowledge Garden</title>
 
 <style>
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f1f5f2;
+    color:#24352c;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f1f5f2;
-    color: #24352c;
+header{
+    background:#075e3b;
+    color:white;
+    padding:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
 }
 
-header {
-    background: #075e3b;
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
+header h2{margin:0;font-size:19px}
+
+button{
+    border:0;
+    border-radius:7px;
+    padding:11px 15px;
+    cursor:pointer;
+    font-size:14px;
 }
 
-header h2 {
-    margin: 0;
-    font-size: 20px;
+button:disabled{opacity:.5;cursor:not-allowed}
+
+.logout{background:white;color:#075e3b}
+
+main{
+    max-width:1100px;
+    margin:auto;
+    padding:18px;
 }
 
-button {
-    border: 0;
-    border-radius: 7px;
-    padding: 11px 16px;
-    cursor: pointer;
-    font-size: 14px;
+.welcome,.card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:18px;
+    box-shadow:0 2px 8px #0000000d;
 }
 
-.logout {
-    background: white;
-    color: #075e3b;
+h3{color:#075e3b}
+
+#status{color:#16834d}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    gap:12px;
+    margin-bottom:20px;
 }
 
-main {
-    padding: 20px;
-    max-width: 1000px;
-    margin: auto;
+.stat{
+    background:white;
+    padding:17px;
+    border-radius:10px;
+    text-align:center;
 }
 
-.welcome {
-    background: white;
-    padding: 22px;
-    border-radius: 12px;
-    margin-bottom: 20px;
+.stat strong{
+    display:block;
+    font-size:25px;
+    color:#075e3b;
+    margin-top:8px;
 }
 
-h3 {
-    color: #075e3b;
+.filters{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:10px;
+    margin:18px 0;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
+input,select{
+    width:100%;
+    padding:13px;
+    border:1px solid #ccc;
+    border-radius:7px;
+    font-size:15px;
 }
 
-.card {
-    background: white;
-    padding: 22px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px #0000000d;
+.load-btn{background:#075e3b;color:white}
+
+.admission-card{
+    border:1px solid #ddd;
+    padding:16px;
+    margin-top:14px;
+    border-radius:9px;
+    background:#fff;
 }
 
-.card button {
-    margin-top: 10px;
-    margin-right: 7px;
+.admission-card h3{margin-top:0}
+
+.detail{
+    margin:8px 0;
+    line-height:1.6;
+    overflow-wrap:anywhere;
 }
 
-#status {
-    color: #666;
+.app-id{
+    font-weight:bold;
+    color:#075e3b;
 }
 
-.admission-card {
-    border: 1px solid #ddd;
-    padding: 14px;
-    margin-top: 12px;
-    border-radius: 8px;
-    background: #fff;
+.copy-btn{background:#e8f1eb;color:#075e3b}
+.approve-btn{background:#087a42;color:white}
+.reject-btn{background:#c62828;color:white}
+
+.actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:13px;
 }
 
-.approve-btn {
-    background: #087a42;
-    color: white;
+.status-badge{
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:15px;
+    font-size:13px;
+    background:#eee;
 }
 
-.reject-btn {
-    background: #c62828;
-    color: white;
-}
+.pending{background:#fff3cd;color:#856404}
+.approved{background:#d4edda;color:#155724}
+.rejected{background:#f8d7da;color:#721c24}
 
-.load-btn {
-    background: #075e3b;
-    color: white;
-}
+#resultCount{color:#666}
 
+@media(max-width:500px){
+    main{padding:12px}
+    .filters{grid-template-columns:1fr}
+    header h2{font-size:16px}
+}
 </style>
 </head>
 
@@ -120,214 +159,283 @@ h3 {
 
 <main>
 
-    <section class="welcome">
-        <h2>স্বাগতম, Administrator!</h2>
-        <p>Knowledge Garden Islamic Institute Admin Dashboard</p>
-        <p id="status">আপনার পরিচয় যাচাই করা হচ্ছে...</p>
-    </section>
+<section class="welcome">
+    <h2>স্বাগতম, Administrator!</h2>
+    <p>Knowledge Garden Islamic Institute Admin Dashboard</p>
+    <p id="status">Admin পরিচয় যাচাই করা হচ্ছে...</p>
+</section>
 
-    <section class="grid">
+<section class="stats">
+    <div class="stat">মোট আবেদন<strong id="totalCount">0</strong></div>
+    <div class="stat">অপেক্ষমাণ<strong id="pendingCount">0</strong></div>
+    <div class="stat">অনুমোদিত<strong id="approvedCount">0</strong></div>
+    <div class="stat">বাতিল<strong id="rejectedCount">0</strong></div>
+</section>
 
-        <div class="card">
-            <h3>ভর্তি আবেদন</h3>
-            <p>শিক্ষার্থীদের ভর্তি আবেদন পরিচালনা করুন।</p>
-        </div>
+<section class="card">
 
-        <div class="card">
-            <h3>শিক্ষার্থী</h3>
-            <p>শিক্ষার্থীদের তথ্য পরিচালনা করুন।</p>
-        </div>
+<h3>ভর্তি আবেদনসমূহ</h3>
 
-        <div class="card">
-            <h3>শিক্ষক</h3>
-            <p>শিক্ষকদের তথ্য পরিচালনা করুন।</p>
-        </div>
+<div class="filters">
 
-        <div class="card">
-            <h3>নোটিশ</h3>
-            <p>প্রতিষ্ঠানের নোটিশ পরিচালনা করুন।</p>
-        </div>
+<input
+    type="search"
+    id="searchInput"
+    placeholder="Application ID অথবা শিক্ষার্থীর নাম লিখুন"
+>
 
-        <div class="card">
-            <h3>গ্যালারি</h3>
-            <p>ছবি ও গ্যালারি পরিচালনা করুন।</p>
-        </div>
+<select id="statusFilter">
+    <option value="">সব আবেদন</option>
+    <option value="Pending">অপেক্ষমাণ</option>
+    <option value="Approved">অনুমোদিত</option>
+    <option value="Rejected">বাতিল</option>
+</select>
 
-    </section>
+</div>
 
-    <section class="card" style="margin-top:20px;">
+<button class="load-btn" onclick="loadAdmissions()">
+আবেদনগুলো রিফ্রেশ করুন
+</button>
 
-        <h3>ভর্তি আবেদনসমূহ</h3>
+<p id="resultCount"></p>
 
-        <button class="load-btn" onclick="loadAdmissions()">
-            আবেদনগুলো দেখুন
-        </button>
+<div id="admissionList">
+    আবেদন লোড করার জন্য অপেক্ষা করুন।
+</div>
 
-        <div id="admissionList">
-            <p>আবেদন দেখতে বাটনে চাপ দিন।</p>
-        </div>
-
-    </section>
+</section>
 
 </main>
 
 <script>
-
 const API_URL = "https://knowledge-garden-3.onrender.com";
 const token = sessionStorage.getItem("adminToken");
 
-// Admin পরিচয় যাচাই
-async function verifyAdmin() {
+let allApplications = [];
 
-    if (!token) {
+const statusElement = document.getElementById("status");
+const list = document.getElementById("admissionList");
+
+async function verifyAdmin(){
+
+    if(!token){
         window.location.replace("admin.html");
         return;
     }
 
-    try {
+    try{
 
-        const response = await fetch(API_URL + "/api/admin/me", {
-            headers: {
-                "Authorization": "Bearer " + token
-            }
+        const response = await fetch(API_URL + "/api/admin/me",{
+            headers:{"Authorization":"Bearer "+token}
         });
 
-        if (!response.ok) {
+        if(!response.ok){
             sessionStorage.removeItem("adminToken");
             window.location.replace("admin.html");
             return;
         }
 
-        document.getElementById("status").textContent =
+        statusElement.textContent =
             "Admin পরিচয় সফলভাবে যাচাই হয়েছে।";
 
-    } catch (error) {
+        await loadAdmissions();
 
-        document.getElementById("status").textContent =
-            "সার্ভারের সঙ্গে সংযোগ হচ্ছে না। আবার চেষ্টা করুন।";
+    }catch(error){
+
+        statusElement.textContent =
+            "সার্ভারের সঙ্গে সংযোগ হচ্ছে না।";
     }
 }
 
-// Logout
-function logout() {
+function logout(){
 
     sessionStorage.removeItem("adminToken");
     window.location.replace("admin.html");
 }
 
-// সব ভর্তি আবেদন দেখানো
-async function loadAdmissions() {
-
-    const list = document.getElementById("admissionList");
+async function loadAdmissions(){
 
     list.textContent = "আবেদন লোড হচ্ছে...";
 
-    try {
+    try{
 
-        const response = await fetch(API_URL + "/api/admissions", {
-            headers: {
-                "Authorization": "Bearer " + token
-            }
+        const response = await fetch(API_URL + "/api/admissions",{
+            headers:{"Authorization":"Bearer "+token}
         });
 
         const result = await response.json();
 
-        if (!response.ok) {
-            throw new Error(result.message || "আবেদন লোড করা যায়নি");
+        if(!response.ok){
+            throw new Error(result.message || "আবেদন লোড হয়নি");
         }
 
-        if (!result.applications || result.applications.length === 0) {
-            list.textContent = "এখনো কোনো ভর্তি আবেদন জমা হয়নি।";
-            return;
-        }
+        allApplications = result.applications || [];
 
-        list.replaceChildren();
+        updateStatistics();
+        filterAdmissions();
 
-        result.applications.forEach(item => {
-
-            const card = document.createElement("div");
-            card.className = "admission-card";
-
-            const title = document.createElement("h3");
-            title.textContent = item.studentName;
-
-            const details = document.createElement("p");
-
-            details.textContent =
-                "পিতা: " + item.fatherName +
-                " | মাতা: " + item.motherName +
-                " | মোবাইল: " + item.phone +
-                " | শ্রেণি: " + item.className +
-                " | ঠিকানা: " + item.address +
-                " | অবস্থা: " + item.status;
-
-            const approveBtn = document.createElement("button");
-            approveBtn.className = "approve-btn";
-            approveBtn.textContent = "Approve";
-
-            approveBtn.disabled = item.status === "Approved";
-
-            approveBtn.onclick = () =>
-                updateAdmissionStatus(item._id, "Approved");
-
-            const rejectBtn = document.createElement("button");
-            rejectBtn.className = "reject-btn";
-            rejectBtn.textContent = "Reject";
-
-            rejectBtn.disabled = item.status === "Rejected";
-
-            rejectBtn.onclick = () =>
-                updateAdmissionStatus(item._id, "Rejected");
-
-            card.append(
-                title,
-                details,
-                approveBtn,
-                rejectBtn
-            );
-
-            list.appendChild(card);
-
-        });
-
-    } catch (error) {
+    }catch(error){
 
         list.textContent = error.message;
     }
 }
 
-// আবেদন Approve অথবা Reject
-async function updateAdmissionStatus(id, status) {
+function updateStatistics(){
 
-    const confirmation = confirm(
-        "আপনি কি আবেদনটির Status " + status + " করতে চান?"
-    );
+    document.getElementById("totalCount").textContent =
+        allApplications.length;
 
-    if (!confirmation) {
+    document.getElementById("pendingCount").textContent =
+        allApplications.filter(a=>a.status==="Pending").length;
+
+    document.getElementById("approvedCount").textContent =
+        allApplications.filter(a=>a.status==="Approved").length;
+
+    document.getElementById("rejectedCount").textContent =
+        allApplications.filter(a=>a.status==="Rejected").length;
+}
+
+function filterAdmissions(){
+
+    const search = document.getElementById("searchInput")
+        .value.trim().toLowerCase();
+
+    const status = document.getElementById("statusFilter").value;
+
+    const filtered = allApplications.filter(item=>{
+
+        const matchesSearch =
+            (item.applicationId || "").toLowerCase().includes(search) ||
+            (item.studentName || "").toLowerCase().includes(search);
+
+        const matchesStatus =
+            !status || item.status===status;
+
+        return matchesSearch && matchesStatus;
+    });
+
+    renderAdmissions(filtered);
+}
+
+function renderAdmissions(applications){
+
+    list.replaceChildren();
+
+    document.getElementById("resultCount").textContent =
+        "মোট " + applications.length + "টি আবেদন পাওয়া গেছে।";
+
+    if(applications.length===0){
+        list.textContent = "কোনো আবেদন পাওয়া যায়নি।";
         return;
     }
 
-    try {
+    applications.forEach(item=>{
+
+        const card = document.createElement("div");
+        card.className = "admission-card";
+
+        const title = document.createElement("h3");
+        title.textContent = item.studentName || "নাম নেই";
+
+        const id = document.createElement("p");
+        id.className = "detail app-id";
+        id.textContent = "Application ID: " +
+            (item.applicationId || "নেই");
+
+        const copyBtn = document.createElement("button");
+        copyBtn.className = "copy-btn";
+        copyBtn.textContent = "ID কপি করুন";
+
+        copyBtn.onclick = async ()=>{
+            try{
+                await navigator.clipboard.writeText(
+                    item.applicationId || ""
+                );
+                copyBtn.textContent = "কপি হয়েছে!";
+            }catch(error){
+                alert("Application ID: " + (item.applicationId || "নেই"));
+            }
+        };
+
+        const date = document.createElement("p");
+        date.className = "detail";
+
+        date.textContent = "আবেদনের তারিখ: " +
+            (item.createdAt
+                ? new Date(item.createdAt).toLocaleString("bn-BD")
+                : "পাওয়া যায়নি");
+
+        const details = document.createElement("p");
+        details.className = "detail";
+
+        details.textContent =
+            "পিতা: " + (item.fatherName || "") +
+            " | মাতা: " + (item.motherName || "") +
+            " | মোবাইল: " + (item.phone || "") +
+            " | শ্রেণি: " + (item.className || "") +
+            " | ঠিকানা: " + (item.address || "");
+
+        const badge = document.createElement("span");
+        badge.className = "status-badge " +
+            (item.status==="Approved" ? "approved" :
+             item.status==="Rejected" ? "rejected" : "pending");
+
+        badge.textContent =
+            item.status==="Approved" ? "অনুমোদিত" :
+            item.status==="Rejected" ? "বাতিল" : "অপেক্ষমাণ";
+
+        const actions = document.createElement("div");
+        actions.className = "actions";
+
+        const approveBtn = document.createElement("button");
+        approveBtn.className = "approve-btn";
+        approveBtn.textContent = "Approve";
+        approveBtn.disabled = item.status==="Approved";
+        approveBtn.onclick = ()=>{
+            updateAdmissionStatus(item._id,"Approved");
+        };
+
+        const rejectBtn = document.createElement("button");
+        rejectBtn.className = "reject-btn";
+        rejectBtn.textContent = "Reject";
+        rejectBtn.disabled = item.status==="Rejected";
+        rejectBtn.onclick = ()=>{
+            updateAdmissionStatus(item._id,"Rejected");
+        };
+
+        actions.append(approveBtn,rejectBtn);
+
+        card.append(
+            title,id,copyBtn,date,details,badge,actions
+        );
+
+        list.appendChild(card);
+    });
+}
+
+async function updateAdmissionStatus(id,status){
+
+    if(!confirm("আপনি কি আবেদনটির Status "+status+" করতে চান?")){
+        return;
+    }
+
+    try{
 
         const response = await fetch(
             API_URL + "/api/admissions/" + id + "/status",
             {
-                method: "PATCH",
-
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": "Bearer " + token
+                method:"PATCH",
+                headers:{
+                    "Content-Type":"application/json",
+                    "Authorization":"Bearer "+token
                 },
-
-                body: JSON.stringify({
-                    status: status
-                })
+                body:JSON.stringify({status})
             }
         );
 
         const result = await response.json();
 
-        if (!response.ok) {
+        if(!response.ok){
             throw new Error(result.message || "Status পরিবর্তন হয়নি");
         }
 
@@ -335,16 +443,21 @@ async function updateAdmissionStatus(id, status) {
 
         await loadAdmissions();
 
-    } catch (error) {
+    }catch(error){
 
         alert(error.message);
     }
 }
+
+document.getElementById("searchInput")
+    .addEventListener("input",filterAdmissions);
+
+document.getElementById("statusFilter")
+    .addEventListener("change",filterAdmissions);
 
 verifyAdmin();
 
 </script>
 
 </body>
-    </html>
-    
+</html>
