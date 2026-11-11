@@ -9,143 +9,262 @@
 <style>
 *{box-sizing:border-box}
 
+:root{
+    --green:#075e3b;
+    --dark:#06452d;
+    --light:#eaf5ee;
+    --bg:#f4f7f5;
+    --text:#24352c;
+    --muted:#718078;
+}
+
 body{
     margin:0;
     font-family:Arial,sans-serif;
-    background:#f1f5f2;
-    color:#24352c;
+    background:var(--bg);
+    color:var(--text);
 }
 
 header{
-    background:#075e3b;
+    background:linear-gradient(120deg,var(--dark),#08794b);
     color:white;
-    padding:18px;
+    padding:20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:10px;
+    gap:12px;
 }
 
-header h2{margin:0;font-size:19px}
+.brand h2{margin:0;font-size:20px}
+.brand p{margin:5px 0 0;font-size:12px;opacity:.8}
 
 button{
     border:0;
-    border-radius:7px;
+    border-radius:8px;
     padding:11px 15px;
     cursor:pointer;
     font-size:14px;
+    font-weight:600;
 }
 
-button:disabled{opacity:.5;cursor:not-allowed}
+button:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
 
-.logout{background:white;color:#075e3b}
+.logout{background:white;color:var(--green)}
 
 main{
-    max-width:1100px;
+    max-width:1150px;
     margin:auto;
-    padding:18px;
+    padding:22px;
 }
 
-.welcome,.card{
+.welcome{
     background:white;
-    padding:20px;
-    border-radius:12px;
-    margin-bottom:18px;
-    box-shadow:0 2px 8px #0000000d;
+    padding:22px;
+    border-radius:14px;
+    margin-bottom:20px;
+    box-shadow:0 3px 12px #00000008;
 }
 
-h3{color:#075e3b}
-
-#status{color:#16834d}
+.welcome h2{margin:0 0 8px;color:var(--green)}
+.welcome p{margin:5px 0;color:var(--muted)}
+#status{color:#16834d;font-weight:600}
 
 .stats{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
-    gap:12px;
-    margin-bottom:20px;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-bottom:22px;
 }
 
 .stat{
     background:white;
-    padding:17px;
-    border-radius:10px;
-    text-align:center;
+    padding:19px;
+    border-radius:13px;
+    box-shadow:0 3px 12px #00000008;
+    border-left:4px solid var(--green);
 }
 
+.stat-label{color:var(--muted);font-size:14px}
 .stat strong{
     display:block;
-    font-size:25px;
-    color:#075e3b;
-    margin-top:8px;
+    font-size:28px;
+    margin-top:10px;
+    color:var(--green);
+}
+
+.stat.pending-stat{border-color:#e6a700}
+.stat.approved-stat{border-color:#159653}
+.stat.rejected-stat{border-color:#d34242}
+
+.panel{
+    background:white;
+    padding:22px;
+    border-radius:14px;
+    box-shadow:0 3px 12px #00000008;
+}
+
+.panel-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.panel-heading h2{
+    margin:0;
+    color:var(--green);
+    font-size:20px;
 }
 
 .filters{
     display:grid;
     grid-template-columns:2fr 1fr;
-    gap:10px;
-    margin:18px 0;
+    gap:12px;
+    margin:20px 0 12px;
 }
 
 input,select{
     width:100%;
     padding:13px;
-    border:1px solid #ccc;
-    border-radius:7px;
+    border:1px solid #d5ded8;
+    border-radius:8px;
     font-size:15px;
+    background:white;
+    color:var(--text);
 }
 
-.load-btn{background:#075e3b;color:white}
+input:focus,select:focus{
+    outline:2px solid #a7d8b8;
+    border-color:var(--green);
+}
+
+.primary-btn{background:var(--green);color:white}
+.refresh-btn{background:var(--light);color:var(--green)}
+
+#resultCount{
+    color:var(--muted);
+    font-size:14px;
+    margin:16px 0;
+}
 
 .admission-card{
-    border:1px solid #ddd;
-    padding:16px;
+    border:1px solid #e2e9e4;
+    padding:18px;
     margin-top:14px;
-    border-radius:9px;
-    background:#fff;
+    border-radius:12px;
+    background:white;
 }
 
-.admission-card h3{margin-top:0}
+.card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+    flex-wrap:wrap;
+}
 
-.detail{
-    margin:8px 0;
-    line-height:1.6;
-    overflow-wrap:anywhere;
+.card-top h3{
+    margin:0 0 9px;
+    color:var(--green);
+    font-size:18px;
 }
 
 .app-id{
     font-weight:bold;
-    color:#075e3b;
+    color:var(--green);
+    overflow-wrap:anywhere;
+    margin:5px 0;
 }
 
-.copy-btn{background:#e8f1eb;color:#075e3b}
-.approve-btn{background:#087a42;color:white}
-.reject-btn{background:#c62828;color:white}
-
-.actions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-top:13px;
+.date{
+    color:var(--muted);
+    font-size:13px;
+    margin:8px 0;
 }
 
 .status-badge{
     display:inline-block;
-    padding:5px 10px;
-    border-radius:15px;
+    padding:6px 12px;
+    border-radius:20px;
     font-size:13px;
-    background:#eee;
+    font-weight:bold;
 }
 
 .pending{background:#fff3cd;color:#856404}
 .approved{background:#d4edda;color:#155724}
 .rejected{background:#f8d7da;color:#721c24}
 
-#resultCount{color:#666}
+.details{
+    display:none;
+    margin-top:15px;
+    padding:15px;
+    background:#f6faf7;
+    border-radius:9px;
+    line-height:1.8;
+    overflow-wrap:anywhere;
+}
 
-@media(max-width:500px){
-    main{padding:12px}
+.details.show{display:block}
+
+.detail-row{
+    padding:5px 0;
+    border-bottom:1px solid #e7eee9;
+}
+
+.actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:14px;
+}
+
+.copy-btn{background:#e8f1eb;color:var(--green)}
+.details-btn{background:#edf1ff;color:#344c9a}
+.approve-btn{background:#087a42;color:white}
+.reject-btn{background:#c62828;color:white}
+
+.pagination{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    margin-top:22px;
+    flex-wrap:wrap;
+}
+
+.page-info{color:var(--muted);font-size:14px}
+
+.empty{
+    text-align:center;
+    padding:30px 10px;
+    color:var(--muted);
+}
+
+footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+    padding:25px 10px;
+}
+
+@media(max-width:700px){
+    main{padding:13px}
+    .stats{grid-template-columns:repeat(2,1fr);gap:10px}
+    .stat{padding:14px}
+    .stat strong{font-size:23px}
+    .panel{padding:15px}
     .filters{grid-template-columns:1fr}
-    header h2{font-size:16px}
+    header{padding:15px}
+    .brand h2{font-size:16px}
+    .welcome{padding:17px}
+}
+
+@media(max-width:360px){
+    .stats{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -153,7 +272,10 @@ input,select{
 <body>
 
 <header>
-    <h2>Knowledge Garden Admin</h2>
+    <div class="brand">
+        <h2>Knowledge Garden</h2>
+        <p>Islamic Institute • Administration Panel</p>
+    </div>
     <button class="logout" onclick="logout()">Logout</button>
 </header>
 
@@ -161,60 +283,87 @@ input,select{
 
 <section class="welcome">
     <h2>স্বাগতম, Administrator!</h2>
-    <p>Knowledge Garden Islamic Institute Admin Dashboard</p>
+    <p>Knowledge Garden Islamic Institute</p>
     <p id="status">Admin পরিচয় যাচাই করা হচ্ছে...</p>
 </section>
 
 <section class="stats">
-    <div class="stat">মোট আবেদন<strong id="totalCount">0</strong></div>
-    <div class="stat">অপেক্ষমাণ<strong id="pendingCount">0</strong></div>
-    <div class="stat">অনুমোদিত<strong id="approvedCount">0</strong></div>
-    <div class="stat">বাতিল<strong id="rejectedCount">0</strong></div>
+    <div class="stat">
+        <div class="stat-label">মোট আবেদন</div>
+        <strong id="totalCount">0</strong>
+    </div>
+
+    <div class="stat pending-stat">
+        <div class="stat-label">অপেক্ষমাণ</div>
+        <strong id="pendingCount">0</strong>
+    </div>
+
+    <div class="stat approved-stat">
+        <div class="stat-label">অনুমোদিত</div>
+        <strong id="approvedCount">0</strong>
+    </div>
+
+    <div class="stat rejected-stat">
+        <div class="stat-label">বাতিল</div>
+        <strong id="rejectedCount">0</strong>
+    </div>
 </section>
 
-<section class="card">
+<section class="panel">
 
-<h3>ভর্তি আবেদনসমূহ</h3>
+    <div class="panel-heading">
+        <h2>ভর্তি আবেদনসমূহ</h2>
+        <button class="refresh-btn" id="refreshBtn"
+        onclick="loadAdmissions()">↻ Refresh</button>
+    </div>
 
-<div class="filters">
+    <div class="filters">
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="Application ID অথবা শিক্ষার্থীর নাম লিখুন"
+        >
 
-<input
-    type="search"
-    id="searchInput"
-    placeholder="Application ID অথবা শিক্ষার্থীর নাম লিখুন"
->
+        <select id="statusFilter">
+            <option value="">সব আবেদন</option>
+            <option value="Pending">অপেক্ষমাণ</option>
+            <option value="Approved">অনুমোদিত</option>
+            <option value="Rejected">বাতিল</option>
+        </select>
+    </div>
 
-<select id="statusFilter">
-    <option value="">সব আবেদন</option>
-    <option value="Pending">অপেক্ষমাণ</option>
-    <option value="Approved">অনুমোদিত</option>
-    <option value="Rejected">বাতিল</option>
-</select>
+    <p id="resultCount">আবেদন লোড হচ্ছে...</p>
 
-</div>
+    <div id="admissionList">
+        অপেক্ষা করুন...
+    </div>
 
-<button class="load-btn" onclick="loadAdmissions()">
-আবেদনগুলো রিফ্রেশ করুন
-</button>
-
-<p id="resultCount"></p>
-
-<div id="admissionList">
-    আবেদন লোড করার জন্য অপেক্ষা করুন।
-</div>
+    <div class="pagination" id="pagination"></div>
 
 </section>
 
 </main>
+
+<footer>
+    © Knowledge Garden Islamic Institute
+    <br>Admin Dashboard
+</footer>
 
 <script>
 const API_URL = "https://knowledge-garden-3.onrender.com";
 const token = sessionStorage.getItem("adminToken");
 
 let allApplications = [];
+let currentPage = 1;
+const pageSize = 5;
 
 const statusElement = document.getElementById("status");
 const list = document.getElementById("admissionList");
+
+function logout(){
+    sessionStorage.removeItem("adminToken");
+    window.location.replace("admin.html");
+}
 
 async function verifyAdmin(){
 
@@ -224,41 +373,34 @@ async function verifyAdmin(){
     }
 
     try{
-
         const response = await fetch(API_URL + "/api/admin/me",{
             headers:{"Authorization":"Bearer "+token}
         });
 
         if(!response.ok){
-            sessionStorage.removeItem("adminToken");
-            window.location.replace("admin.html");
+            logout();
             return;
         }
 
         statusElement.textContent =
-            "Admin পরিচয় সফলভাবে যাচাই হয়েছে।";
+            "✓ Admin পরিচয় সফলভাবে যাচাই হয়েছে।";
 
         await loadAdmissions();
 
     }catch(error){
-
         statusElement.textContent =
             "সার্ভারের সঙ্গে সংযোগ হচ্ছে না।";
+        list.textContent = "সার্ভার সংযোগ পরীক্ষা করুন।";
     }
-}
-
-function logout(){
-
-    sessionStorage.removeItem("adminToken");
-    window.location.replace("admin.html");
 }
 
 async function loadAdmissions(){
 
     list.textContent = "আবেদন লোড হচ্ছে...";
 
-    try{
+    document.getElementById("refreshBtn").disabled = true;
 
+    try{
         const response = await fetch(API_URL + "/api/admissions",{
             headers:{"Authorization":"Bearer "+token}
         });
@@ -266,17 +408,23 @@ async function loadAdmissions(){
         const result = await response.json();
 
         if(!response.ok){
+            if(response.status===401){
+                logout();
+                return;
+            }
             throw new Error(result.message || "আবেদন লোড হয়নি");
         }
 
         allApplications = result.applications || [];
 
         updateStatistics();
+        currentPage = 1;
         filterAdmissions();
 
     }catch(error){
-
         list.textContent = error.message;
+    }finally{
+        document.getElementById("refreshBtn").disabled = false;
     }
 }
 
@@ -317,6 +465,18 @@ function filterAdmissions(){
     renderAdmissions(filtered);
 }
 
+function addDetail(container,label,value){
+
+    const row = document.createElement("div");
+    row.className = "detail-row";
+
+    const strong = document.createElement("strong");
+    strong.textContent = label + ": ";
+
+    row.append(strong,document.createTextNode(value || "তথ্য নেই"));
+    container.appendChild(row);
+}
+
 function renderAdmissions(applications){
 
     list.replaceChildren();
@@ -324,23 +484,85 @@ function renderAdmissions(applications){
     document.getElementById("resultCount").textContent =
         "মোট " + applications.length + "টি আবেদন পাওয়া গেছে।";
 
+    const pagination = document.getElementById("pagination");
+    pagination.replaceChildren();
+
     if(applications.length===0){
-        list.textContent = "কোনো আবেদন পাওয়া যায়নি।";
+        const empty = document.createElement("div");
+        empty.className = "empty";
+        empty.textContent = "কোনো আবেদন পাওয়া যায়নি।";
+        list.appendChild(empty);
         return;
     }
 
-    applications.forEach(item=>{
+    const totalPages = Math.ceil(applications.length/pageSize);
 
-        const card = document.createElement("div");
+    if(currentPage>totalPages) currentPage=totalPages;
+
+    const start = (currentPage-1)*pageSize;
+    const pageItems = applications.slice(start,start+pageSize);
+
+    pageItems.forEach(item=>{
+
+        const card = document.createElement("article");
         card.className = "admission-card";
+
+        const top = document.createElement("div");
+        top.className = "card-top";
+
+        const left = document.createElement("div");
 
         const title = document.createElement("h3");
         title.textContent = item.studentName || "নাম নেই";
 
         const id = document.createElement("p");
-        id.className = "detail app-id";
+        id.className = "app-id";
         id.textContent = "Application ID: " +
             (item.applicationId || "নেই");
+
+        left.append(title,id);
+
+        const badge = document.createElement("span");
+        badge.className = "status-badge " +
+            (item.status==="Approved" ? "approved" :
+             item.status==="Rejected" ? "rejected" : "pending");
+
+        badge.textContent =
+            item.status==="Approved" ? "অনুমোদিত" :
+            item.status==="Rejected" ? "বাতিল" : "অপেক্ষমাণ";
+
+        top.append(left,badge);
+
+        const date = document.createElement("p");
+        date.className = "date";
+        date.textContent = "আবেদনের তারিখ: " +
+            (item.createdAt
+                ? new Date(item.createdAt).toLocaleString("bn-BD")
+                : "পাওয়া যায়নি");
+
+        const details = document.createElement("div");
+        details.className = "details";
+
+        addDetail(details,"পিতার নাম",item.fatherName);
+        addDetail(details,"মাতার নাম",item.motherName);
+        addDetail(details,"মোবাইল নম্বর",item.phone);
+        addDetail(details,"শ্রেণি",item.className);
+        addDetail(details,"ঠিকানা",item.address);
+
+        const actions = document.createElement("div");
+        actions.className = "actions";
+
+        const detailsBtn = document.createElement("button");
+        detailsBtn.className = "details-btn";
+        detailsBtn.textContent = "বিস্তারিত দেখুন";
+
+        detailsBtn.onclick = ()=>{
+            details.classList.toggle("show");
+            detailsBtn.textContent =
+                details.classList.contains("show")
+                ? "বিস্তারিত বন্ধ করুন"
+                : "বিস্তারিত দেখুন";
+        };
 
         const copyBtn = document.createElement("button");
         copyBtn.className = "copy-btn";
@@ -353,44 +575,15 @@ function renderAdmissions(applications){
                 );
                 copyBtn.textContent = "কপি হয়েছে!";
             }catch(error){
-                alert("Application ID: " + (item.applicationId || "নেই"));
+                alert("Application ID: "+(item.applicationId || "নেই"));
             }
         };
-
-        const date = document.createElement("p");
-        date.className = "detail";
-
-        date.textContent = "আবেদনের তারিখ: " +
-            (item.createdAt
-                ? new Date(item.createdAt).toLocaleString("bn-BD")
-                : "পাওয়া যায়নি");
-
-        const details = document.createElement("p");
-        details.className = "detail";
-
-        details.textContent =
-            "পিতা: " + (item.fatherName || "") +
-            " | মাতা: " + (item.motherName || "") +
-            " | মোবাইল: " + (item.phone || "") +
-            " | শ্রেণি: " + (item.className || "") +
-            " | ঠিকানা: " + (item.address || "");
-
-        const badge = document.createElement("span");
-        badge.className = "status-badge " +
-            (item.status==="Approved" ? "approved" :
-             item.status==="Rejected" ? "rejected" : "pending");
-
-        badge.textContent =
-            item.status==="Approved" ? "অনুমোদিত" :
-            item.status==="Rejected" ? "বাতিল" : "অপেক্ষমাণ";
-
-        const actions = document.createElement("div");
-        actions.className = "actions";
 
         const approveBtn = document.createElement("button");
         approveBtn.className = "approve-btn";
         approveBtn.textContent = "Approve";
         approveBtn.disabled = item.status==="Approved";
+
         approveBtn.onclick = ()=>{
             updateAdmissionStatus(item._id,"Approved");
         };
@@ -399,18 +592,48 @@ function renderAdmissions(applications){
         rejectBtn.className = "reject-btn";
         rejectBtn.textContent = "Reject";
         rejectBtn.disabled = item.status==="Rejected";
+
         rejectBtn.onclick = ()=>{
             updateAdmissionStatus(item._id,"Rejected");
         };
 
-        actions.append(approveBtn,rejectBtn);
-
-        card.append(
-            title,id,copyBtn,date,details,badge,actions
+        actions.append(
+            detailsBtn,copyBtn,approveBtn,rejectBtn
         );
 
+        card.append(top,date,details,actions);
         list.appendChild(card);
     });
+
+    if(totalPages>1){
+
+        const previous = document.createElement("button");
+        previous.className = "refresh-btn";
+        previous.textContent = "← আগের";
+        previous.disabled = currentPage===1;
+
+        previous.onclick = ()=>{
+            currentPage--;
+            renderAdmissions(applications);
+        };
+
+        const info = document.createElement("span");
+        info.className = "page-info";
+        info.textContent =
+            "পৃষ্ঠা "+currentPage+" / "+totalPages;
+
+        const next = document.createElement("button");
+        next.className = "primary-btn";
+        next.textContent = "পরের →";
+        next.disabled = currentPage===totalPages;
+
+        next.onclick = ()=>{
+            currentPage++;
+            renderAdmissions(applications);
+        };
+
+        pagination.append(previous,info,next);
+    }
 }
 
 async function updateAdmissionStatus(id,status){
@@ -420,7 +643,6 @@ async function updateAdmissionStatus(id,status){
     }
 
     try{
-
         const response = await fetch(
             API_URL + "/api/admissions/" + id + "/status",
             {
@@ -440,24 +662,28 @@ async function updateAdmissionStatus(id,status){
         }
 
         alert("আবেদনের Status সফলভাবে পরিবর্তন হয়েছে।");
-
         await loadAdmissions();
 
     }catch(error){
-
         alert(error.message);
     }
 }
 
 document.getElementById("searchInput")
-    .addEventListener("input",filterAdmissions);
+    .addEventListener("input",()=>{
+        currentPage=1;
+        filterAdmissions();
+    });
 
 document.getElementById("statusFilter")
-    .addEventListener("change",filterAdmissions);
+    .addEventListener("change",()=>{
+        currentPage=1;
+        filterAdmissions();
+    });
 
 verifyAdmin();
-
 </script>
 
 </body>
-</html>
+    </html>
+    
