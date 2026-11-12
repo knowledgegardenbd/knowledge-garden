@@ -1,447 +1,106 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>যোগাযোগ | Knowledge Garden Islamic Institute</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: #f5f8f6;
-            color: #222;
-            line-height: 1.7;
-        }
-
-        header {
-            background: #075e3b;
-            color: white;
-            text-align: center;
-            padding: 22px 15px;
-        }
-
-        header h1 {
-            font-size: 25px;
-            margin-bottom: 3px;
-        }
-
-        header p {
-            font-size: 14px;
-            opacity: 0.95;
-        }
-
-        nav {
-            background: #064d32;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 5px;
-            padding: 10px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            background: #0b7650;
-        }
-
-        .page-header {
-            background: linear-gradient(135deg, #0b7650, #075e3b);
-            color: white;
-            text-align: center;
-            padding: 55px 15px;
-        }
-
-        .page-header h2 {
-            font-size: 32px;
-            margin-bottom: 8px;
-        }
-
-        .page-header p {
-            font-size: 16px;
-        }
-
-        .container {
-            max-width: 1050px;
-            margin: 40px auto;
-            padding: 0 15px;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .contact-box,
-        .message-box,
-        .map-box {
-            background: white;
-            padding: 28px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .contact-box h3,
-        .message-box h3,
-        .map-box h3 {
-            color: #075e3b;
-            margin-bottom: 20px;
-            font-size: 22px;
-        }
-
-        .contact-item {
-            background: #f5f8f6;
-            padding: 14px;
-            border-radius: 8px;
-            margin-bottom: 14px;
-        }
-
-        .contact-item strong {
-            display: block;
-            color: #075e3b;
-            margin-bottom: 3px;
-        }
-
-        .contact-item a {
-            color: #333;
-            text-decoration: none;
-        }
-
-        .contact-item a:hover {
-            color: #075e3b;
-        }
-
-        .form-group {
-            margin-bottom: 16px;
-        }
-
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 6px;
-            color: #333;
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 7px;
-            font-size: 15px;
-            outline: none;
-        }
-
-        input:focus,
-        textarea:focus {
-            border-color: #075e3b;
-        }
-
-        textarea {
-            height: 130px;
-            resize: vertical;
-        }
-
-        button {
-            width: 100%;
-            padding: 13px;
-            background: #075e3b;
-            color: white;
-            border: none;
-            border-radius: 7px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background: #0b7650;
-        }
-
-        .map-box {
-            margin-top: 25px;
-            text-align: center;
-        }
-
-        .map-placeholder {
-            margin-top: 15px;
-            height: 230px;
-            background: #e9f3ee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            color: #075e3b;
-            font-size: 18px;
-            border: 2px dashed #9bc9b2;
-        }
-
-        .contact-note {
-            margin-top: 25px;
-            background: #eaf5ef;
-            color: #075e3b;
-            padding: 18px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        footer {
-            background: #064d32;
-            color: white;
-            text-align: center;
-            padding: 25px 15px;
-            margin-top: 50px;
-        }
-
-        footer p {
-            margin: 3px 0;
-            font-size: 14px;
-        }
-
-        @media (max-width: 700px) {
-
-            header h1 {
-                font-size: 21px;
-            }
-
-            header p {
-                font-size: 13px;
-            }
-
-            nav {
-                padding: 8px 5px;
-            }
-
-            nav a {
-                font-size: 13px;
-                padding: 7px 9px;
-            }
-
-            .page-header {
-                padding: 42px 15px;
-            }
-
-            .page-header h2 {
-                font-size: 26px;
-            }
-
-            .page-header p {
-                font-size: 14px;
-            }
-
-            .container {
-                margin: 28px auto;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-box,
-            .message-box,
-            .map-box {
-                padding: 20px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>যোগাযোগ | Knowledge Garden Islamic Institute</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,"Noto Sans Bengali",sans-serif;background:#f5f8f6;color:#26352d;line-height:1.7}
+header{background:#075e3b;color:white;text-align:center;padding:25px 15px}
+header h1{font-size:25px}
+header p{margin-top:5px}
+nav{background:#064d32;padding:13px;text-align:center}
+nav a{color:white;text-decoration:none;margin:0 10px;font-weight:bold;display:inline-block}
+.container{max-width:1000px;margin:30px auto;padding:0 16px}
+.page-title{text-align:center;margin-bottom:25px}
+.page-title h2{color:#075e3b;font-size:30px}
+.page-title p{color:#607168}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.card{background:white;padding:25px;border-radius:12px;box-shadow:0 3px 14px #0000000d}
+.card h3{color:#075e3b;margin-bottom:12px}
+.contact-item{padding:10px 0;border-bottom:1px solid #e7eee9}
+.contact-item:last-child{border:0}
+a.phone{color:#075e3b;font-weight:bold;text-decoration:none}
+.note{background:#eaf5ee;padding:15px;border-radius:9px;margin-top:20px}
+footer{background:#064d32;color:white;text-align:center;padding:22px;margin-top:40px}
+footer a{color:white;margin:0 8px}
+@media(max-width:600px){header h1{font-size:20px}nav a{margin:5px;font-size:14px}.page-title h2{font-size:25px}}
+</style>
 </head>
-
 <body>
 
-     <!-- Header -->
-
-<header class="main-header">
-
-    <h1 class="animated-title">
-        Knowledge Garden Islamic Institute
-    </h1>
-
-    <p class="bangla-title">
-        নলেজ গার্ডেন ইসলামিক ইনস্টিটিউট
-    </p>
-
-    <p class="header-tagline">
-        জ্ঞান, নৈতিকতা ও ইসলামী শিক্ষার সমন্বিত প্রতিষ্ঠান
-    </p>
-
+<header>
+<h1>Knowledge Garden Islamic Institute</h1>
+<p>নলেজ গার্ডেন ইসলামিক ইনস্টিটিউট</p>
+<p>কুরআন ও ইসলামী শিক্ষার পাশাপাশি আধুনিক শিক্ষার সমন্বয়</p>
 </header>
 
+<nav>
+<a href="index.html">হোম</a>
+<a href="about.html">আমাদের সম্পর্কে</a>
+<a href="departments.html">বিভাগসমূহ</a>
+<a href="admission.html">ভর্তি</a>
+<a href="notice.html">নোটিশ</a>
+<a href="contact.html">যোগাযোগ</a>
+</nav>
 
-    <!-- Navigation -->
-    <nav>
-        <a href="index.html">হোম</a>
-        <a href="about.html">আমাদের সম্পর্কে</a>
-        <a href="departments.html">বিভাগসমূহ</a>
-        <a href="teachers.html">শিক্ষকবৃন্দ</a>
-        <a href="admission.html">অনলাইন ভর্তি</a>
-        <a href="notice.html">নোটিশ</a>
-        <a href="gallery.html">গ্যালারি</a>
-        <a href="contact.html">যোগাযোগ</a>
-    </nav>
+<main class="container">
+<div class="page-title">
+<h2>যোগাযোগ করুন</h2>
+<p>প্রতিষ্ঠান সম্পর্কে যেকোনো তথ্যের জন্য আমাদের সঙ্গে যোগাযোগ করুন।</p>
+</div>
 
+<div class="grid">
+<section class="card">
+<h3>প্রতিষ্ঠানের ঠিকানা</h3>
+<div class="contact-item">
+<strong>Knowledge Garden Islamic Institute</strong><br>
+তুষখালী বাজার, সোনালী ব্যাংক সংলগ্ন,<br>
+মঠবাড়িয়া, পিরোজপুর, বাংলাদেশ।
+</div>
+</section>
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <h2>যোগাযোগ করুন</h2>
-        <p>প্রয়োজনে আমাদের সাথে যোগাযোগ করুন</p>
-    </section>
+<section class="card">
+<h3>মোবাইল নম্বর</h3>
+<div class="contact-item">
+<strong>মোবাইল ১:</strong><br>
+<a class="phone" href="tel:01345582218">01345-582218</a>
+</div>
+<div class="contact-item">
+<strong>মোবাইল ২:</strong><br>
+<a class="phone" href="tel:01345582219">01345-582219</a>
+</div>
+<div class="contact-item">
+<strong>মোবাইল ৩:</strong><br>
+<a class="phone" href="tel:01799974737">01799974737</a>
+</div>
+</section>
+</div>
 
+<div class="note">
+<strong>যোগাযোগের নির্দেশনা:</strong>
+ভর্তি, বিভাগ, শিক্ষা কার্যক্রম ও অন্যান্য তথ্য জানতে উপরের নম্বরগুলোতে সরাসরি কল করুন।
+</div>
 
-    <!-- Main Content -->
-    <main class="container">
+<section class="card" style="margin-top:20px">
+<h3>ভর্তি সংক্রান্ত তথ্য</h3>
+<p>ভর্তি আবেদন করতে নিচের লিংকে প্রবেশ করুন।</p>
+<p style="margin-top:15px">
+<a href="apply.html" style="display:inline-block;background:#075e3b;color:white;text-decoration:none;padding:11px 22px;border-radius:7px;font-weight:bold">ভর্তি আবেদন করুন</a>
+</p>
+</section>
+</main>
 
-        <div class="contact-grid">
-
-            <!-- Contact Information -->
-            <div class="contact-box">
-
-                <h3>যোগাযোগের তথ্য</h3>
-
-                <div class="contact-item">
-                    <strong>📍 ঠিকানা</strong>
-                    নলেজ গার্ডেন ইসলামিক ইনস্টিটিউট
-                </div>
-
-                <div class="contact-item">
-                    <strong>📞 মোবাইল</strong>
-                    <a href="tel:01XXXXXXXXX">
-                        01XXXXXXXXX
-                    </a>
-                </div>
-
-                <div class="contact-item">
-                    <strong>📧 ই-মেইল</strong>
-                    <a href="mailto:info@example.com">
-                        info@example.com
-                    </a>
-                </div>
-
-                <div class="contact-item">
-                    <strong>🕐 অফিস সময়</strong>
-                    সকাল ৯টা — বিকেল ৫টা
-                </div>
-
-            </div>
-
-
-            <!-- Message Form -->
-            <div class="message-box">
-
-                <h3>আমাদের মেসেজ করুন</h3>
-
-                <form>
-
-                    <div class="form-group">
-                        <label for="name">
-                            আপনার নাম
-                        </label>
-
-                        <input
-                            type="text"
-                            id="name"
-                            placeholder="আপনার নাম লিখুন"
-                            required>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="phone">
-                            মোবাইল নম্বর
-                        </label>
-
-                        <input
-                            type="tel"
-                            id="phone"
-                            placeholder="01XXXXXXXXX"
-                            required>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="email">
-                            ই-মেইল
-                        </label>
-
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="আপনার ই-মেইল লিখুন">
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="message">
-                            আপনার বার্তা
-                        </label>
-
-                        <textarea
-                            id="message"
-                            placeholder="আপনার বার্তা লিখুন"
-                            required></textarea>
-                    </div>
-
-
-                    <button type="submit">
-                        মেসেজ পাঠান
-                    </button>
-
-                </form>
-
-            </div>
-
-        </div>
-
-
-        <!-- Map -->
-        <div class="map-box">
-
-            <h3>আমাদের অবস্থান</h3>
-
-            <p>
-                এখানে পরবর্তীতে প্রতিষ্ঠানের Google Map
-                যুক্ত করা যাবে।
-            </p>
-
-            <div class="map-placeholder">
-                📍 Google Map এখানে যুক্ত হবে
-            </div>
-
-        </div>
-
-
-        <!-- Note -->
-        <div class="contact-note">
-            <strong>নোট:</strong>
-            বর্তমানে যোগাযোগ ফর্মটি শুধু ডিজাইনের জন্য তৈরি করা হয়েছে।
-            পরবর্তীতে Backend যুক্ত করলে মেসেজ সরাসরি প্রতিষ্ঠানের কাছে পাঠানো যাবে।
-        </div>
-
-    </main>
-
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Knowledge Garden Islamic Institute</p>
-        <p>সকল অধিকার সংরক্ষিত</p>
-    </footer>
+<footer>
+<p>© 2026 Knowledge Garden Islamic Institute</p>
+<p style="margin-top:8px">
+<a href="index.html">হোম</a> |
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="terms.html">Terms &amp; Conditions</a>
+</p>
+</footer>
 
 </body>
 </html>
