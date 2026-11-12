@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://knowledgegardenbd.github.io/knowledge-garden/sitemap.xml
