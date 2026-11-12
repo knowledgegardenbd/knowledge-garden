@@ -1,33 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://knowledgegardenbd.github.io/knowledge-garden/</loc>
-  </url>
-  <url>
-    <loc>https://knowledgegardenbd.github.io/knowledge-garden/about.html</loc>
-  </url>
-  <url>
-    <loc>https://knowledgegardenbd.github.io/knowledge-garden/departments.html</loc>
-  </url>
-  <url>
-    <loc>https://knowledgegardenbd.github.io/knowledge-garden/teachers.html</loc>
-  </url>
-  <url>
-    <loc>https://knowledgegardenbd.github.io/knowledge-garden/admission.html</loc>
-  </url>
-  <url>
-    <loc>https://knowledgegardenbd.github.io/knowledge-garden/notice.html</loc>
-  </url>
-  <url>
-    <loc>https://knowledgegardenbd.github.io/knowledge-garden/gallery.html</loc>
-  </url>
-  <url>
-    <loc>https://knowledgegardenbd.github.io/knowledge-garden/contact.html</loc>
-  </url>
-  <url>
-    <loc>https://knowledgegardenbd.github.io/knowledge-garden/privacy-policy.html</loc>
-  </url>
-  <url>
-    <loc>https://knowledgegardenbd.github.io/knowledge-garden/terms.html</loc>
-  </url>
+
+  <url><loc>https://knowledgegardenbd.github.io/knowledge-garden/</loc></url>
+  <url><loc>https://knowledgegardenbd.github.io/knowledge-garden/about.html</loc></url>
+  <url><loc>https://knowledgegardenbd.github.io/knowledge-garden/departments.html</loc></url>
+  <url><loc>https://knowledgegardenbd.github.io/knowledge-garden/teachers.html</loc></url>
+  <url><loc>https://knowledgegardenbd.github.io/knowledge-garden/admission.html</loc></url>
+  <url><loc>https://knowledgegardenbd.github.io/knowledge-garden/notice.html</loc></url>
+  <url><loc>https://knowledgegardenbd.github.io/knowledge-garden/gallery.html</loc></url>
+  <url><loc>https://knowledgegardenbd.github.io/knowledge-garden/contact.html</loc></url>
+  <url><loc>https://knowledgegardenbd.github.io/knowledge-garden/privacy-policy.html</loc></url>
+  <url><loc>https://knowledgegardenbd.github.io/knowledge-garden/terms.html</loc></url>
+  <url><loc>https://knowledgegardenbd.github.io/knowledge-garden/disclaimer.html</loc></url>
+
 </urlset>
